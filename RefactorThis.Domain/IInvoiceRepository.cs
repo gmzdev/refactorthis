@@ -1,4 +1,6 @@
-﻿namespace RefactorThis.Domain
+﻿using RefactorThis.Domain.Entities;
+
+namespace RefactorThis.Domain
 {
     public interface IInvoiceRepository
     {

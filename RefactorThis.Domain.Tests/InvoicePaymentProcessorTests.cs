@@ -1,10 +1,11 @@
 ﻿using System;
 using NUnit.Framework;
+using RefactorThis.Domain.Entities;
 using RefactorThis.Persistence;
 
 namespace RefactorThis.Domain.Tests
 {
-	[TestFixture]
+    [TestFixture]
 	public class InvoicePaymentProcessorTests
 	{
 		[Test]

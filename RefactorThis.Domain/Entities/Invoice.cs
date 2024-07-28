@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RefactorThis.Domain
+namespace RefactorThis.Domain.Entities
 {
     public class Invoice
     {
@@ -21,7 +21,7 @@ namespace RefactorThis.Domain
 
         public void AddPayment(Payment payment)
         {
-            switch (this.Type)
+            switch (Type)
             {
                 case InvoiceType.Standard:
                     AmountPaid += payment.Amount;

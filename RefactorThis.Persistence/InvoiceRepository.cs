@@ -1,9 +1,11 @@
 using RefactorThis.Domain;
+using RefactorThis.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RefactorThis.Persistence {
+namespace RefactorThis.Persistence
+{
     public class InvoiceRepository : IInvoiceRepository
     {
         private List<Invoice> _invoices = new List<Invoice>();

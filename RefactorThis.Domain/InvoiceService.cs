@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
+using RefactorThis.Domain.Entities;
 
 namespace RefactorThis.Domain
 {
-	public class InvoiceService
+    public class InvoiceService
 	{
 		private readonly IInvoiceRepository _invoiceRepository;
 

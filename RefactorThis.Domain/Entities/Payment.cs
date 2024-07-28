@@ -1,9 +1,9 @@
 using System;
 
-namespace RefactorThis.Domain
+namespace RefactorThis.Domain.Entities
 {
-	public class Payment
-	{
+    public class Payment
+    {
         public Payment(decimal amount, Invoice invoice)
         {
             Amount = amount;
@@ -11,6 +11,6 @@ namespace RefactorThis.Domain
         }
 
         public decimal Amount { get; private set; }
-		public string ReferenceNumber { get; private set; }
-	}
+        public string ReferenceNumber { get; private set; }
+    }
 }
