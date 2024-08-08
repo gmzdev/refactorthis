@@ -39,7 +39,7 @@ namespace RefactorThis.Domain.Tests
             // Arrange
             var repo = new InvoiceRepository();
             var invoice = new Invoice(0, InvoiceType.Standard, "INV-001");
-            repo.Add(invoice);
+            repo.SaveInvoice(invoice);
             var paymentProcessor = new InvoiceService(repo);
             var payment = new Payment(1.50m, invoice);
             
@@ -58,7 +58,7 @@ namespace RefactorThis.Domain.Tests
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
             var fullPayment = new Payment(10, invoice);
 			invoice.AddPayment(fullPayment);
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 			var paymentProcessor = new InvoiceService(repo);
 			var anotherPayment = new Payment(10, invoice);
             
@@ -76,7 +76,7 @@ namespace RefactorThis.Domain.Tests
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
 			var partialPayment = new Payment(5, invoice);
 			invoice.AddPayment(partialPayment);
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 
 			var paymentProcessor = new InvoiceService(repo);
 			var newPayment = new Payment(6, invoice);
@@ -91,7 +91,7 @@ namespace RefactorThis.Domain.Tests
 			// Arrange
 			var repo = new InvoiceRepository();
 			var invoice = new Invoice(5, InvoiceType.Standard, "INV-001");
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 
 			var paymentProcessor = new InvoiceService(repo);
 			var newPayment = new Payment(6, invoice);
@@ -111,7 +111,7 @@ namespace RefactorThis.Domain.Tests
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
             var partialPayment = new Payment(5, invoice);
             invoice.AddPayment(partialPayment);
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 			var paymentProcessor = new InvoiceService(repo);
             var finalPayment = new Payment(5, invoice);
 
@@ -128,7 +128,7 @@ namespace RefactorThis.Domain.Tests
 			// Arrange
 			var repo = new InvoiceRepository();
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 			var paymentProcessor = new InvoiceService(repo);
 			var fullPayment = new Payment(10, invoice);
 
@@ -147,7 +147,7 @@ namespace RefactorThis.Domain.Tests
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
 			var partialPayment = new Payment(5, invoice);
 			invoice.AddPayment(partialPayment);
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 
 			var paymentProcessor = new InvoiceService(repo);
 			var anotherPartialPayment = new Payment(2, invoice);
@@ -164,7 +164,7 @@ namespace RefactorThis.Domain.Tests
 			// Arrange
 			var repo = new InvoiceRepository();
 			var invoice = new Invoice(10, InvoiceType.Standard, "INV-001");
-			repo.Add(invoice);
+			repo.SaveInvoice(invoice);
 			var paymentProcessor = new InvoiceService(repo);
 			var payment = new Payment(1, invoice);
 

@@ -24,18 +24,13 @@ namespace RefactorThis.Persistence
 
         public void SaveInvoice(Invoice invoice)
         {
-            var existingInvoice = this._invoices.FirstOrDefault(i => i.ReferenceNumber == invoice.ReferenceNumber);
+            var existingInvoice = this._invoices.Find(i => i.ReferenceNumber == invoice.ReferenceNumber);
             if (existingInvoice == null)
             {
                 _invoices.Add(invoice);
             }
 
             existingInvoice = invoice;
-        }
-
-        public void Add(Invoice invoice)
-        {
-            _invoices.Add(invoice);
         }
     }
 }

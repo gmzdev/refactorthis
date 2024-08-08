@@ -5,8 +5,15 @@ namespace RefactorThis.Domain.Entities
 {
     public class Invoice
     {
+        private const decimal TaxRate = 0.14m;
+
         public Invoice(decimal amount, InvoiceType type, string referenceNumber)
         {
+            if (string.IsNullOrEmpty(referenceNumber))
+            {
+                throw new ArgumentException("Invoice should have a reference number");
+            }
+
             Amount = amount;
             Type = type;
             ReferenceNumber = referenceNumber;
@@ -29,18 +36,12 @@ namespace RefactorThis.Domain.Entities
                     break;
                 case InvoiceType.Commercial:
                     AmountPaid += payment.Amount;
-                    TaxAmount += payment.Amount * 0.14m;
+                    TaxAmount += payment.Amount * TaxRate;
                     Payments.Add(payment);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-    }
-
-    public enum InvoiceType
-    {
-        Standard,
-        Commercial
     }
 }
