@@ -1,21 +1,36 @@
-namespace RefactorThis.Persistence {
-	public class InvoiceRepository
-	{
-		private Invoice _invoice;
+using RefactorThis.Domain;
+using RefactorThis.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-		public Invoice GetInvoice( string reference )
-		{
-			return _invoice;
-		}
+namespace RefactorThis.Persistence
+{
+    public class InvoiceRepository : IInvoiceRepository
+    {
+        private List<Invoice> _invoices = new List<Invoice>();
 
-		public void SaveInvoice( Invoice invoice )
-		{
-			//saves the invoice to the database
-		}
+        public Invoice GetInvoice(string referenceNumber)
+        {
+            var invoice = _invoices.FirstOrDefault(i => i.ReferenceNumber == referenceNumber);
 
-		public void Add( Invoice invoice )
-		{
-			_invoice = invoice;
-		}
-	}
+            if (invoice == null)
+            {
+                throw new InvalidOperationException("There is no invoice matching this payment");
+            }
+
+            return invoice;
+        }
+
+        public void SaveInvoice(Invoice invoice)
+        {
+            var existingInvoice = this._invoices.Find(i => i.ReferenceNumber == invoice.ReferenceNumber);
+            if (existingInvoice == null)
+            {
+                _invoices.Add(invoice);
+            }
+
+            existingInvoice = invoice;
+        }
+    }
 }
